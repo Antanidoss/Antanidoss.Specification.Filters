@@ -1,12 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
+	
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1</TargetFrameworks>
+		<PackageId>Antanidoss.Specification.Filters</PackageId>
+		<Title>Antanidoss.Specification.Filters</Title>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Anton Sadovskiy (@Antanidoss)</Authors>
+		<PackageProjectUrl>https://github.com/Antanidoss/Antanidoss.Specification.Filters</PackageProjectUrl>
+		<Description>Using Filters with Specifications</Description>
+		<Summary>Using Filters with Specifications</Summary>
+		<RepositoryUrl>https://github.com/Antanidoss/Antanidoss.Specification.Filters</RepositoryUrl>
+		<PackageTags>filters</PackageTags>
+		<Version>1.0.0</Version>
+		<AssemblyName>Antanidoss.Specification.Filters</AssemblyName>
+		<Features>strict</Features>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Antanidoss.Specification" Version="1.0.0" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Antanidoss.Specification" Version="1.0.0" />
+	</ItemGroup>
+	
 </Project>
