@@ -1,4 +1,5 @@
 ﻿using Antanidoss.Specification.Filters.Interfaces;
+using Antanidoss.Specification.Filters.Validations;
 using Antanidoss.Specification.Interfaces;
 using System;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Antanidoss.Specification.Filters.Implementation
 
         public Where(ISpecification<TEntity> specification)
         {
+            SpecificationValidator.SetEmptySpecificationIfNull(ref specification);
+
             Specification = specification;
         }
 
