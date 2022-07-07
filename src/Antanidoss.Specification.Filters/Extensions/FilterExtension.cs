@@ -33,5 +33,21 @@ namespace Antanidoss.Specification.Filters.Extensions
 
             return new ConnectIQueryableMultipleResultFilter<TEntity>(filter, whereFilter);
         }
+
+        public static IQueryableMultipleResultFilter<TEntity> OrderBy<TEntity>(this IQueryableMultipleResultFilter<TEntity> filter, ISpecification<TEntity> specification)
+            where TEntity : class
+        {
+            var orderByFilter = new OrderBy<TEntity>(specification);
+
+            return new ConnectIQueryableMultipleResultFilter<TEntity>(filter, orderByFilter);
+        }
+
+        public static IQueryableMultipleResultFilter<TEntity> Include<TEntity>(this IQueryableMultipleResultFilter<TEntity> filter, ISpecification<TEntity> specification)
+            where TEntity : class
+        {
+            var includeFilter = new Include<TEntity>(specification);
+
+            return new ConnectIQueryableMultipleResultFilter<TEntity>(filter, includeFilter);
+        }
     }
 }
