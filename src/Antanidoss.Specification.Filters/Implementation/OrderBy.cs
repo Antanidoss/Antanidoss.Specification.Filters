@@ -1,17 +1,20 @@
 ﻿using Antanidoss.Specification.Filters.Interfaces;
+using Antanidoss.Specification.Filters.Validations;
 using Antanidoss.Specification.Interfaces;
 using System;
 using System.Linq;
 
 namespace Antanidoss.Specification.Filters.Implementation
 {
-    internal class OrderBy<TEntity> : IQueryableMultipleResultFilter<TEntity>
+    public class OrderBy<TEntity> : IQueryableMultipleResultFilter<TEntity>
         where TEntity : class
     {
         public ISpecification<TEntity> Specification { get; private set; }
 
         public OrderBy(ISpecification<TEntity> specification)
         {
+            SpecificationValidator.SetEmptySpecificationIfNull(ref specification);
+
             Specification = specification;
         }
 

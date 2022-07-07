@@ -1,5 +1,6 @@
 ﻿using Antanidoss.Specification.Filters.Implementation;
 using Antanidoss.Specification.Filters.Interfaces;
+using Antanidoss.Specification.Interfaces;
 
 namespace Antanidoss.Specification.Filters.Extensions
 {
@@ -15,6 +16,22 @@ namespace Antanidoss.Specification.Filters.Extensions
             where TEntity : class
         {
             return new ConnectIQueryableSingleResultFilter<TEntity>(firstFilter, secondFilter);
+        }
+
+        public static IQueryableSingleResultFilter<TEntity> FirstOrDefault<TEntity>(this IQueryableMultipleResultFilter<TEntity> filter, ISpecification<TEntity> specification)
+            where TEntity : class
+        {
+            var firstOrDefaultFilter = new FirstOrDefault<TEntity>(specification);
+
+            return new ConnectIQueryableSingleResultFilter<TEntity>(filter, firstOrDefaultFilter);
+        }
+
+        public static IQueryableMultipleResultFilter<TEntity> Where<TEntity>(this IQueryableMultipleResultFilter<TEntity> filter, ISpecification<TEntity> specification)
+            where TEntity : class
+        {
+            var whereFilter = new Where<TEntity>(specification);
+
+            return new ConnectIQueryableMultipleResultFilter<TEntity>(filter, whereFilter);
         }
     }
 }
