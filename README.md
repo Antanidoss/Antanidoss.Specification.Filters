@@ -65,12 +65,12 @@ public class PersonRepository : IPersonRepository
 
     public IEnumerable<Person> GetByFilter(IQueryableMultipleResultFilter<Person> filter)
     {
-        return filter.ApplyFilter(specification.ToExpression()).ToList();
+        return filter.ApplyFilter(_context.Persons).ToList();
     }
     
     public Person GetByFilter(IQueryableSingleResultFilter<Person> filter)
     {
-        return filter.ApplyFilter(specification.ToExpression());
+        return filter.ApplyFilter(_context.Persons);
     }
 }
 ```
